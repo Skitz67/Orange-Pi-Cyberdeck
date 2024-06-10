@@ -1,7 +1,6 @@
 # Orange-Pi-Cyberdeck
 My take on a cyberdeck using an orange pi zero 2w 4gb ram. The functionality of this device is RFID/NFC read, write, and emulate, IR transmitting, and wi-fi attacks.
 
-
 Parts list
   Orange Pi Zero 2w 4gb Ram
     https://www.aliexpress.com/item/1005006016355138.html?spm=a2g0o.order_list.order_list_main.30.4d9d1802XZqhQc
