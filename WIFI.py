@@ -1,25 +1,17 @@
 #!/.venv/bin/python3
 import wireless
 from wifi import Cell
-from scapy.all import *
-
-#setup interface for wifi network searching
-wifi1 = wireless.Wireless()
-interface = wifi1.interface()
-
+import scapy.all as scapy
 
 
 
 def FindNetworks():
-    #using interface to search for networks within range
-    wifiNetworks = Cell.all(interface)
-    
-    for wifi in wifiNetworks():
-        print(f"Network Name: {wifi.ssid}")
-        print(f"Network Address: {wifi.address}")
-        print(f"Network Channel: {str(wifi.channel)}")
-        print(f"Network Quality: {str(wifi.quality)}")
+    print(f"finding networks")
+    #scan networks within area
     #return list of networks
+
+def ScanNetwork(network):
+    print(f"scanning {network}")
 
 def Deauth(network):
     print(f"Deauthing {network}")
