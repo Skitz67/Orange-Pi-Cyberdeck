@@ -12,6 +12,6 @@ Parts list
   IR Transmitter
     https://www.aliexpress.com/item/1005006327593563.html?spm=a2g0o.order_list.order_list_main.24.4d9d1802XZqhQc
   3.7V Lithium Battery(2)
-    https://www.aliexpress.com/item/1005006738761150.html?spm=a2g0o.order_list.order_list_main.10.4d9d1802XZqhQc
+    https://www.aliexpress.com/item/1005006738761150.html?spm=a2g0o.order_list.order_list_main.10.4d9d1802XZqhQc 
   Usb-C Lithium Battery Charge Module
     https://www.aliexpress.com/item/1005004427739715.html?spm=a2g0o.order_list.order_list_main.41.4d9d1802XZqhQc
