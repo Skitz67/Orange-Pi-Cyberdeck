@@ -12,7 +12,9 @@ def FindNetworks():
     # decode it to strings 
     devices = devices.decode('ascii') 
     devices= devices.replace("\r","") 
-    #return list
+    #return list of networks found
+    devices = devices.split("\n")
+    
     return devices
 
 def ScanNetwork(network):
