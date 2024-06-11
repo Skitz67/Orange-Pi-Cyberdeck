@@ -2,13 +2,18 @@
 import wireless
 from wifi import Cell
 import scapy.all as scapy
+import subprocess as sub
 
 
 
 def FindNetworks():
-    print(f"finding networks")
-    #scan networks within area
-    #return list of networks
+    # using the check_output() for having the network term retrieval 
+    devices = sub.check_output(['netsh','wlan','show','network'])
+    # decode it to strings 
+    devices = devices.decode('ascii') 
+    devices= devices.replace("\r","") 
+    #return list
+    return devices
 
 def ScanNetwork(network):
     print(f"scanning {network}")
@@ -23,3 +28,5 @@ def SaveNetwork(network):
 
 def EmulateNetwork(network):
     print(f"emulating {network}")
+
+print(FindNetworks())
