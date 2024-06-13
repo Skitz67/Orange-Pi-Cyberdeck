@@ -16,9 +16,18 @@ def FindNetworks():
     devices = devices.split("\n")
     
     return devices
-
+    
 def ScanNetwork(network):
     print(f"scanning {network}")
+    ipAddress = sub.check_output("arp -a")
+
+    ipAddress = ipAddress.decode('ascii') 
+    ipAddress = ipAddress.replace("\r","") 
+
+    ipAddress = ipAddress.split("\n")
+    ipAddress = ipAddress[3:]
+
+    return ipAddress
 
 def Deauth(network):
     print(f"Deauthing {network}")
@@ -32,3 +41,4 @@ def EmulateNetwork(network):
     print(f"emulating {network}")
 
 print(FindNetworks())
+print(ScanNetwork("ORMISTON"))
