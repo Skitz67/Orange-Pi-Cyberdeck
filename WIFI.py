@@ -26,7 +26,6 @@ def ScanNetwork(network):
 
     ipAddress = ipAddress.split("\n")
     ipAddress = ipAddress[3:]
-
     return ipAddress
 
 def Deauth(network):
