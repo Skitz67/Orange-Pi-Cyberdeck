@@ -28,16 +28,29 @@ def ScanNetwork(network):
     ipAddress = ipAddress[3:]
     return ipAddress
 
+def ScanAccessPoints():
+    AP = sub.check_output("airodump-ng wlan0mon")
+
+    return AP
+
+
+def CapturePackets(channel, bssid):
+    pack = sub.check_output(f"airodump-ng -c {channel} -bssid {bssid} wlan0mon")
+
+    return pack
+
+
 def Deauth(network):
     print(f"Deauthing {network}")
     #send deauth packet to network
+
 
 def SaveNetwork(network):
     print(f"saving {network}")
     #save network data to file of networks saved
 
+
 def EmulateNetwork(network):
     print(f"emulating {network}")
 
 print(FindNetworks())
-print(ScanNetwork("ORMISTON"))

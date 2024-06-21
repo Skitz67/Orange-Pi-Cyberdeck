@@ -1,0 +1,5 @@
+[Autorun]
+Open=appname.exe
+Action=Start app
+Label=testLabel
+Icon=icon.ico
