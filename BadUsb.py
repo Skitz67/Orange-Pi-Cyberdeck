@@ -4,7 +4,7 @@ def WriteUsb(appName, label, icon, usbName, fileSuffix):
     if icon == None:
         icon = appName + fileSuffix
     #create and write startup file
-    f = open("autorun.txt", "w")
+    f = open("autorun.inf", "w")
     f.write(f"[Autorun]\nOpen={appName}{fileSuffix}\nAction=Start {appName}\nLabel={label}\nIcon={icon}")
     f.close()
     #move file to root usb
