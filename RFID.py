@@ -1,6 +1,6 @@
 #!/.venv/bin/python3
 
-from adafruit_pn532.i2c import PN532_I2C
+from Adafruit_PN532 import PN532_I2C
 from digitalio import DigitalInOut
 import busio
 import board
@@ -14,14 +14,13 @@ i2c = busio.I2C(board.SCL, board.SDA)
 reset_pin = DigitalInOut(board.D6)
 # On Raspberry Pi, you must also connect a pin to P32 "H_Request" for hardware
 # wakeup! this means we don't need to do the I2C clock-stretch thing
-#I have no idea what the FUCK this means ^^^
+# I have no idea what the FUCK this means ^^^
 req_pin = DigitalInOut(board.D12)
 pn532 = PN532_I2C(i2c, debug=False, reset=reset_pin, req=req_pin)
 # Configure PN532 to communicate with MiFare cards
-#I could google this ^^^ but right now i do not give a fuck
+# MiFare cards are just a brand name version of rfid cards with different versions
 pn532.SAM_configuration()
 
-detect = False
 emulate = False
 write = False
 
@@ -37,13 +36,14 @@ def GetData(cardName):
     #return file contents
 
 def ReadCard():
-    detect = True
+    while True:
+        id = pn532.read_passive_target(timeout=0.5)
+        if id is None:
+            continue
+        print(f"card data found: {id}")
+        #read code on card, somthing  about blocks and block numbers idfk
 
-    while detect == True:
-        print("test read")
-        #detect shit
-        #if detected grab data
-        #save card
+
 
 def EmulateCard(cardName):
     emulate = True
