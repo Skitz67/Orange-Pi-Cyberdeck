@@ -1,6 +1,6 @@
 import shutil
 
-def WriteUsb(appName, label, icon, usbName, fileSuffix):
+def WriteBadUsb(appName, label, icon, usbName, fileSuffix):
     if icon == None:
         icon = appName + fileSuffix
     #create and write startup file
@@ -10,4 +10,8 @@ def WriteUsb(appName, label, icon, usbName, fileSuffix):
     #move file to root usb
     shutil.move("path to file", "C://")
 
-WriteUsb("appname.exe", "testLabel", "icon.ico", "usbname", ".exe")
+def GrabData():
+    print("grabbing data")
+    #rip info from attached external drive as fast as possible for sharing capabilities
+
+WriteBadUsb("appname.exe", "testLabel", "icon.ico", "usbname", ".exe")

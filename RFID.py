@@ -32,8 +32,8 @@ def SaveCard(cardName, cardData):
 
 def GetData(cardName):
     print(f"Getting data from {cardName}")
-    #read file
-    #return file contents
+    f = open(cardName, "r")
+    return f.read()
 
 def ReadCard():
     while True:
@@ -42,6 +42,7 @@ def ReadCard():
             continue
         print(f"card data found: {id}")
         #read code on card, somthing  about blocks and block numbers idfk
+        #seriously you gotta make progress here
 
 
 
