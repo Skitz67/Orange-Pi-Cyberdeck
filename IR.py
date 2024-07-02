@@ -25,11 +25,9 @@ def Spam(reps=1, delay=1):
         gpio.digitalWrite(IRDATA, 0)
 
 def OnSig():
-    #yea work in progress
-    print("work in progress")
+    #turns on lol
+    gpio.digitalWrite(IRDATA, 1)
     
 def OffSig():
-    #yea work in progress
-    print("work in progress")
-
-#shhhhh its ok im not here
+    #turns off lol
+    gpio.digitalWrite(IRDATA, 0)
